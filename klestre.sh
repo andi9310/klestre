@@ -4,7 +4,7 @@
 #deb packages
 
 sudo apt-get update ;
-sudo apt-get install tftpd-hpa syslinux initramfs-tools nfs-kernel-server build-essential module-assistant isc-dhcp-server tftp;
+sudo apt-get install tftpd-hpa syslinux initramfs-tools nfs-kernel-server build-essential module-assistant isc-dhcp-server tftp -y;
 
 
 #dhcp server
