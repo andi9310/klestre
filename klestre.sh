@@ -4,7 +4,7 @@
 #deb packages
 
 sudo apt-get update ;
-sudo apt-get install tftpd-hpa syslinux initramfs-tools nfs-kernel-server build-essential module-assistant isc-dhcp-server ;
+sudo apt-get install tftpd-hpa syslinux initramfs-tools nfs-kernel-server build-essential module-assistant isc-dhcp-server tftp;
 
 
 #dhcp server
@@ -56,7 +56,10 @@ sudo /sbin/route add default gw 10.0.2.2 eth0 ;
 
 echo '#Defaults for tftpd-hpa
 RUN_DAEMON="yes"
-OPTIONS="-l -s /tftpboot"' | sudo tee /etc/default/tftpd-hpa ;
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/tftpboot"
+TFTP_ADRESS="0.0.0.0:69"
+TFTP_OPTIONS="--secure"' | sudo tee /etc/default/tftpd-hpa ;
 
 sudo mkdir -p /tftpboot/pxelinux.cfg ;
 sudo cp /usr/lib/syslinux/pxelinux.0 /tftpboot ;
