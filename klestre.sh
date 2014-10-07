@@ -69,8 +69,9 @@ LABEL ubuntu
 kernel memdisk
 append iso initrd=auto2.iso raw' | sudo tee /tftpboot/pxelinux.cfg/default ;
 
-sudo cp /usr/lib/syslinux /tftpboot/ ;
+sudo cp /usr/lib/syslinux/memdisk /tftpboot/ ;
 sudo chmod -R 555 /tftpboot ;
+sudo chown -R nobody:nogroup /tftpboot
 sudo /etc/init.d/tftpd-hpa start ;
 
 
